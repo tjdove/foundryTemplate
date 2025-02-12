@@ -1,6 +1,8 @@
-# Compiler files
-cache/
+# Ignore Foundry build artifacts
 out/
+
+# Ignore Foundry cache
+cache/
 
 # Ignores development broadcast logs
 !/broadcast
@@ -10,5 +12,17 @@ out/
 # Docs
 docs/
 
-# Dotenv file
+# Ignore dependency files (lib/ can be regenerated using `forge install`)
+lib/
+
+# Ignore environment-specific files
 .env
+.env.local
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore OS-specific files
+.DS_Store
+
