@@ -1,0 +1,32 @@
+//60008060093d393df3 - contract creation bytecode
+//cast --to-hex --to-base58 --input 0x60008060093d393df3
+
+#define macro MAIN() = takes(0) returns(0) {
+    // 0x00        //[0]
+    // 0x01        //TOP [1, 0] Bottom
+    // calldataload    //[calldata]
+    // SHR opcode // shift right
+
+//Want to shift to only have the function selector
+    calldataload        //[calldata(32)]
+//How do I get the function selector from the calldata?
+// the function selector is the first 4 bytes of the calldata
+//So I need to shift the first 4 bytes of the calldata to the right by 224 bits
+//  call: cast to-base 224 hex   Result:0xe0
+
+    0xe0                //push1 0xe0
+    shr               //[function selector
+
+
+//JUMP - opcode - unconditional jump - jump to the location on the stack
+//JUMPI - opcode - conditional jump - if the top of the stack is not 0, jump to the location on the stack
+    updatejump //JUMP - opcode - unconditional jump - jump to the location on the stack
+
+
+    updatejump: 
+        SET_NUMBER_OF_HORSES()
+}
+
+#define macro SET_NUMBER_OF_HORSES() = takes(0) returns(0) {
+
+}
